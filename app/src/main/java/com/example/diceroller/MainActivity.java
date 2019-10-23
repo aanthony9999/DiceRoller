@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.Random;
@@ -30,14 +31,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -53,15 +52,24 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void on_button_click(View view){
-        TextView tv = this.findViewById(R.id.textView);
+    public void on_button_click(View view) {
 
+        clickcount = clickcount + 1;
+
+        TextView tv = this.findViewById(R.id.txt1);//returns textview which has that ID
+        TextView tv2 = this.findViewById(R.id.txt2);
         Random r = new Random();
-        int number = r.nextInt(10);
-
-
+        int number = r.nextInt(6)+1;
         tv.setText(Integer.toString(number));
+        user_input = this.findViewById(R.id.txt2);
+        String num = user_input.getText().toString(number));
 
+        if (num.equals(Integer.toString(number))){
+            tv2.setText("congratulation");
+            count +=1;
+        }
+        tv2.setText(Integer.toString(count));
 
     }
+
 }
