@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.Random;
@@ -54,21 +55,22 @@ public class MainActivity extends AppCompatActivity {
 
     public void on_button_click(View view) {
 
-        clickcount = clickcount + 1;
+        try {
+            TextView tv = this.findViewById(R.id.txt1);
+            Random r = new Random();
+            int number = r.nextInt(6) + 1;
+            tv.setText(Integer.toString(number));
+            EditText user_input = this.findViewById(R.id.user_input);
+            TextView tv2 = this.findViewById(R.id.txt2);
 
-        TextView tv = this.findViewById(R.id.txt1);//returns textview which has that ID
-        TextView tv2 = this.findViewById(R.id.txt2);
-        Random r = new Random();
-        int number = r.nextInt(6)+1;
-        tv.setText(Integer.toString(number));
-        user_input = this.findViewById(R.id.txt2);
-        String num = user_input.getText().toString(number));
+            String str = user_input.getText().toString();
+            int insertnumer1 = Integer.parseInt(str);
 
-        if (num.equals(Integer.toString(number))){
-            tv2.setText("congratulation");
-            count +=1;
+            if (number == insertnumer1) {
+                tv2.setText("congrats");
+            } else tv2.setText("sorry not the same number");
+        }catch (Exception e) {
         }
-        tv2.setText(Integer.toString(count));
 
     }
 
